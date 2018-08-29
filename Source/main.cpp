@@ -66,6 +66,7 @@ selection:
 		{
 			std::unique_ptr<Snake> game = std::make_unique<Snake>();
 			game.get()->run();
+			goto selection;
 			break;
 		}
 
@@ -75,7 +76,6 @@ selection:
 			break;
 		}
 	}
-
 
 	return 0;
 }
