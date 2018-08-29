@@ -146,7 +146,7 @@ void Snake::update()
 
 		sf::Vector2f foodVector(randomVector());
 		// Ensures food doesn't move onto snake.
-		while (foodVector == player.getPosition() && tailCollision(foodVector))
+		while (foodVector == player.getPosition() || tailCollision(foodVector))
 		{
 			foodVector = sf::Vector2f(randomVector());
 		}
@@ -155,6 +155,7 @@ void Snake::update()
 		// Increase size of tail.
 		for (int i = 0; i < 10; i++)
 		{
+			// Starts off screen.
 			tail.push_back(sf::Vector2f(-RECT_SIZE, -RECT_SIZE));
 		}
 	}
@@ -231,7 +232,7 @@ void Snake::input()
 void Snake::run()
 {
 	// Controls
-	std::cout << "\nControls:\n";
+	std::cout << "\nSnake Controls:\n";
 	std::cout << "WASD - Movement\n";
 	std::cout << "R    - Restart\n";
 	std::cout << "ESC  - Close\n\n";
@@ -266,6 +267,7 @@ void Snake::run()
 			total_time -= update_interval;
 		}
 
+		// Draw
 		window.clear();
 
 		window.draw(text);
