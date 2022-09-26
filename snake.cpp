@@ -53,7 +53,7 @@ void Snake::init()
 	window.setVerticalSyncEnabled(false);
 
 	// Initialize font/text.
-	font.loadFromFile("Snake/arial.ttf");
+	font.loadFromFile("arial.ttf");
 	text.setFont(font);
 	text.setCharacterSize((OFFSET / 2));
 	text.setFillColor(sf::Color::White);
@@ -231,12 +231,6 @@ void Snake::input()
 // Runs the snake game.
 void Snake::run()
 {
-	// Controls
-	std::cout << "\nSnake Controls:\n";
-	std::cout << "WASD - Movement\n";
-	std::cout << "R    - Restart\n";
-	std::cout << "ESC  - Close\n\n";
-
 	init();
 
 	// For frame independant gameplay.
@@ -259,7 +253,7 @@ void Snake::run()
 
 		input();
 
-		// Game only updates at a cetain interval.
+		// Game only updates at a certain interval.
 		while (total_time >= update_interval)
 		{
 			update();
@@ -295,4 +289,10 @@ void Snake::restart()
 	player.setFillColor(sf::Color::Green);
 	food.setPosition(randomVector());
 	direction = '?';
+}
+
+int main()
+{
+	Snake snake;
+	snake.run();
 }
