@@ -12,7 +12,7 @@ Purpose: Implements snake in c++.
 sf::Vector2f Snake::randomVector()
 {
 	return sf::Vector2f((float)((rand() % 100) * RECT_SIZE + OFFSET),
-		(float)((rand() % 100) * RECT_SIZE + OFFSET));
+						(float)((rand() % 100) * RECT_SIZE + OFFSET));
 }
 
 // Creates a new rectangle with a specified position and colour.
@@ -47,7 +47,7 @@ void Snake::init()
 
 	// Initialize window.
 	window.create(sf::VideoMode(WIDTH, WIDTH), "Snake",
-		sf::Style::Titlebar | sf::Style::Close);
+				  sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
 	window.setKeyRepeatEnabled(false);
 	window.setVerticalSyncEnabled(false);
@@ -117,15 +117,15 @@ void Snake::update()
 	}
 
 	// Wall Collisions
-	unsigned short int player_x   = (unsigned short int)player.getPosition().x;
-	unsigned short int player_y   = (unsigned short int)player.getPosition().y;
+	unsigned short int player_x = (unsigned short int)player.getPosition().x;
+	unsigned short int player_y = (unsigned short int)player.getPosition().y;
 
 	unsigned short int playArea_x = (unsigned short int)playArea.getPosition().x;
 	unsigned short int playArea_y = (unsigned short int)playArea.getPosition().y;
 
-	if (player_x < playArea_x						   ||
+	if (player_x < playArea_x ||
 		player_x > playArea_x + PLAY_WIDTH - RECT_SIZE ||
-		player_y < playArea_y						   ||
+		player_y < playArea_y ||
 		player_y + RECT_SIZE > playArea_y + PLAY_WIDTH)
 	{
 		player.setFillColor(sf::Color::Black);
@@ -169,10 +169,10 @@ void Snake::pollEvents()
 	{
 		switch (event.type)
 		{
-			case (sf::Event::Closed):
-			{
-				window.close();
-			}
+		case (sf::Event::Closed):
+		{
+			window.close();
+		}
 		}
 	}
 }
@@ -182,32 +182,32 @@ void Snake::input()
 {
 	// Move up.
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::D) && direction != 's')
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::D) && direction != 's')
 	{
 		direction = 'w';
 	}
 
 	// Move left.
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::W) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::S) && direction != 'd')
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::W) &&
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::S) && direction != 'd')
 	{
 		direction = 'a';
 	}
 
 	// Move down.
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::D) && direction != 'w')
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::A) &&
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::D) && direction != 'w')
 	{
 		direction = 's';
 	}
 
 	// Move right.
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::W) &&
-	   !sf::Keyboard::isKeyPressed(sf::Keyboard::S) && direction != 'a')
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::W) &&
+		!sf::Keyboard::isKeyPressed(sf::Keyboard::S) && direction != 'a')
 	{
 		direction = 'd';
 	}
@@ -233,7 +233,7 @@ void Snake::run()
 {
 	init();
 
-	// For frame independant gameplay.
+	// For frame independent gameplay.
 	sf::Clock clock;
 	double update_interval = 0.0833333333333333; // 1 / frames.
 	double total_time = 0;

@@ -6,8 +6,8 @@ Purpose: Implements snake in c++.
 @version 1.1
 */
 
-#ifndef   SNAKE_H
-#define   SNAKE_H
+#ifndef SNAKE_H
+#define SNAKE_H
 
 #include <iostream>
 #include <random>
@@ -18,10 +18,10 @@ class Snake
 {
 private:
 	// Constants
-	static const unsigned short int WIDTH	   = 800;
+	static const unsigned short int WIDTH = 800;
 	static const unsigned short int PLAY_WIDTH = WIDTH - (WIDTH / 10);
-	static const unsigned short int OFFSET	   = (WIDTH - PLAY_WIDTH) / 2;
-	static const unsigned short int RECT_SIZE  = PLAY_WIDTH / 100;
+	static const unsigned short int OFFSET = (WIDTH - PLAY_WIDTH) / 2;
+	static const unsigned short int RECT_SIZE = PLAY_WIDTH / 100;
 
 	sf::RenderWindow window;
 
@@ -93,4 +93,3 @@ public:
 };
 
 #endif // SNAKE_H
-
